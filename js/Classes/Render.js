@@ -21,11 +21,13 @@ class Render{
     }
 
 
-    drawLine(p1, p2, color)  {
+    drawLine(p1, p2, width, color)  {
         var ctx = this.context;
         ctx.save();
 
-        ctx.fillStyle = color;
+        ctx.strokeStyle = color;
+
+        ctx.lineWidth = parseInt(width);
 
         ctx.beginPath();
         ctx.moveTo(p1.x, p1.y);
