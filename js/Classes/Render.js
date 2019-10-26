@@ -12,7 +12,6 @@ class Render{
 
         ctx.fillStyle = color;
 
-        console.log("To desenhando");
         ctx.beginPath();
         ctx.arc(x, y, raio, 0, 2 * Math.PI);
         ctx.fill();
