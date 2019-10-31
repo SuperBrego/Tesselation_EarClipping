@@ -1,7 +1,7 @@
 
 var render;
 var pointArray;
-var concavePoints, convexPoints;
+var convexPoints, concavePoints;
 var grahamScan;
 
 function start(){
@@ -28,13 +28,24 @@ function start(){
 	
 	grahamScan = new GrahamScan();
 	grahamScan.addPoints(pointArray);
-	concavePoints = grahamScan.getHull();
+	convexPoints = grahamScan.getHull();
+	console.log("São " + convexPoints.length + " pontos convexos");
+	console.log(convexPoints);
+	findConcavePoints();
 	console.log("São " + concavePoints.length + " pontos côncavos");
 	console.log(concavePoints);
-	findConvexPoints();
-
+	findEarPoints();
 }
 
-function findConvexPoints(){
+function findConcavePoints(){
+	concavePoints = [];
+	for(let i = 0; i < pointArray.length; i++){
+		if(!convexPoints.includes(pointArray[i])){
+			concavePoints.push(pointArray[i]);
+		}
+	}
+}
 
+function findEarPoints() {
+	
 }
